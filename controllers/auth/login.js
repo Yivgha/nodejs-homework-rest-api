@@ -23,6 +23,7 @@ const login = async (req, res) => {
     if (!token) {
         throw RequestError(401, "Not authorized");
     }
+    await User.findByIdAndUpdate(user._id, { token });
     
     res.status(200).json({
         token,
