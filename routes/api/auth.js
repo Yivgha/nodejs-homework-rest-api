@@ -14,6 +14,8 @@ router.post("/register", validateBody(schemas.registerSchema), ctlrWrapper(ctrl.
 
 router.post("/login", validateBody(schemas.loginSchema), ctlrWrapper(ctrl.login));
 
+router.patch("/subscription", auth, validateBody(schemas.updSubscription), ctlrWrapper(ctrl.changeSubscription));
+
 router.get("/current", auth, ctlrWrapper(ctrl.getCurrent));
 
 router.get("/logout", auth, ctlrWrapper(ctrl.logout));
