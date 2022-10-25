@@ -27,6 +27,10 @@ subscription: {
         type: String,
         default: "",
     },
+    avatarURL: {
+        type: String,
+        required: true,
+    },
 }, { versionKey: false, timestamps: true });
 
 userSchema.post("save", handleSaveErrors);
