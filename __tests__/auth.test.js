@@ -60,7 +60,6 @@ describe("test auth routes", () => {
                     email: "testuser@gmail.com",
                     password: "123456",
                 };
-
                 const response = async () => {
                     await request(app).post("/api/auth/login").send(loginUser);
                     const { body } = response;
@@ -70,7 +69,7 @@ describe("test auth routes", () => {
                     expect(body.token).toBeTruthy();
                     const resObj = { email: user.email, subscription: user.subscription };
                     expect(response.body).toMatchObject(resObj);
-                };
+            };
             } catch (err) {
                 console.log(err);
         };
