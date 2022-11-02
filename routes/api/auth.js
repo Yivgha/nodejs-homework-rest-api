@@ -12,6 +12,10 @@ const router = express.Router();
 
 router.post("/register", validateBody(schemas.registerSchema), ctlrWrapper(ctrl.register));
 
+router.get("/verify/:verificationToken", ctlrWrapper(ctrl.verify));
+
+router.post("/verify", validateBody(schemas.verifyEmailSchema), ctlrWrapper(ctrl.resendEmail));
+
 router.post("/login", validateBody(schemas.loginSchema), ctlrWrapper(ctrl.login));
 
 router.patch("/subscription", auth, validateBody(schemas.updSubscription), ctlrWrapper(ctrl.changeSubscription));
